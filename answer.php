@@ -45,47 +45,23 @@
       <div class="right-image">
         <img src="./images/positive_negative.jpg" alt="positive or negative number" />
       </div>
-      <div class="page-content">
-        Select what kind of number you would like
-      </div>
-      <form action="answer.php" method="post">
-          <br />
-          <label
-            class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-            for="option-positive">
-            <input
-              type="radio"
-              id="option-positive"
-              class="mdl-radio__button"
-              name="kind-of-number"
-              value="1"
-              checked />
-            <span class="mdl-radio__label">Positive</span>
-          </label>
-          <label
-            class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-            for="option-negative">
-            <input
-              type="radio"
-              id="option-negative"
-              class="mdl-radio__button"
-              name="kind-of-number"
-              value="2" />
-            <span class="mdl-radio__label">Negative</span>
-          </label>
-          <br />
-          <br />
-          <!-- Accent-colored raised button with ripple -->
-          <button
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            type="submit">
-            Generate
-          </button>
-        </form>
+      <div class="page-content-php">
+        <div id="user-info">
+          <?php
+          $userNumber = $_POST["kind-of-number"];
+          if ($userNumber == "1") {
+            $randomNumber = rand(1, 6);
+          } else {
+            $randomNumber = rand(-6, -1);
+          }
+          echo "The random number is: " . $randomNumber;
+          ?>
+        </div>
         <br />
         <div class="page-content-answer">
-          <div id="results"></div>
+          <a href="./index.php"> Return ...</a>
         </div>
+        <br />
     </main>
   </div>
 </body>
